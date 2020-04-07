@@ -12,9 +12,16 @@
     <div id="cesiumContainer" style="width: 700px; height: 400px;"></div>
     <script type="text/javascript" src="./index.js"></script>
     <script>
-      var viewer = new Cesium.Viewer("cesiumContainer");
+      /**
+       * Step one: Comment out everything and capture the memory to establish the base case
+       * Step two: Uncomment out the var viewer ... check memory
+       * Step three: uncomment out Cesium.CzmlDataSource.load(sampleDataset).then((result) => {
+       *              but leave the viewer.dataSources.add .. commented .. check the memory
+       * Step three: uncomment the viewer.dataSources.add ... check the memory
+       *
+       * */
+      var viewer = new Cesium.Viewer("cesiumContainer"); //
       Cesium.CzmlDataSource.load(sampleDataset).then((result) => {
-        console.log("HERE");
         viewer.dataSources.add(result);
       });
     </script>
